@@ -1,0 +1,4 @@
+admin 123	
+User1 password!1 (super)
+User2 password@2
+User3 password#3
