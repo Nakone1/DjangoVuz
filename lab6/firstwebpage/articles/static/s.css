@@ -1,0 +1,52 @@
+p{
+	color: black;
+}
+a:hover{
+	color: green;
+}
+body{
+	color: #000000;
+	font-family: Tahoma, Arial, sans-serif;
+	margin: 10px;
+}
+.article-info{
+	color: black;
+}
+.header img {
+	display: block;
+ 	width: 318px;
+ 	margin-left: auto;
+ 	margin-right: auto;
+}
+
+.archive {
+	background-color: lightblue;
+}
+.article-author {
+	width: 50%;
+	float: left;
+}
+.article-created-date {
+ 	text-align: right;
+}
+
+#info{
+	color: black;
+}
+
+#user{
+	color: black;
+}
+#user {
+  float: right;
+}
+.article-author {
+    width: 50%;
+    float: left;
+}
+
+#navbar-right {
+  float:right;
+  height: 100%;
+  text-align: center;
+}
