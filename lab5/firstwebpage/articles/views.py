@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Article
 from django.http import Http404
 
@@ -15,7 +15,7 @@ def get_article(request, article_id):
 
 #не готово
 def create_post(request):
-	if request.user.is_authenticated():
+	if request.user != 'AnonymousUser':
 		if request.method == "POST":    
 			# обработать данные формы, если метод POST 
 			form = {
@@ -23,10 +23,15 @@ def create_post(request):
 				'title': request.POST["title"]
 			}
 			# в словаре form будет храниться информация, введенная пользователем 
+			validation = Article.objects.filter(title=form['title'])
+			if validation:
+				form['errors'] = u'Такая статья уже существует. Попробуйте снова.'
+				return render(request, 'create_post.html', {'form': form})
+			#проверка на уникальность заголовка
 			if form["text"] and form["title"]:
 				# если поля заполнены без ошибок
 				Article.objects.create(text=form["text"], title=form["title"], author=request.user) 
-				return redirect('get_article', article_id=article.id)
+				return redirect('articles')
 				# перейти на страницу поста
 			else:
 				#если введеные данные некорректны
@@ -37,7 +42,3 @@ def create_post(request):
 			return render(request, 'create_post.html', {})
 	else:        
 		raise Http404
-
-# Если пользователь авторизован, то отправить его на форму создания поста
-#иначе 404
-# вставить в #сюды код из пдф

@@ -1,0 +1,16 @@
+
+body {
+  background-color: lightblue;
+  font-size: 14px;
+}
+
+.content{
+	margin: 0 auto;
+	width: 550px;
+	border:2px solid white;
+	padding: 5px;
+}
+textarea{
+	width: 500px;
+	margin: 5px 0; 
+}
